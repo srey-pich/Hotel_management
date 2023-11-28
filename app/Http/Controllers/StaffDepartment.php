@@ -50,11 +50,7 @@ class StaffDepartment extends Controller
         $data=Department::find($id);
         return view('department.edit',['data'=>$data]);
 
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
+    } 
     public function update(Request $request, string $id)
     {
         $data =Department::find($id);
@@ -63,10 +59,6 @@ class StaffDepartment extends Controller
         $data->save();
         return redirect('admin/department/create'.$id.'/edit')->with('success','You has been edit department sucess');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id)
     {
         Department::where('id',$id)->delete();
